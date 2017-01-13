@@ -30,7 +30,14 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+for i = 1:m
 
+  p_class = all_theta * X(i, :)';   % probabilities for each classes
+  [x ix] = max(p_class);
+  
+  p(i) = ix;
+
+endfor
 
 
 
