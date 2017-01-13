@@ -37,12 +37,11 @@ grad = zeros(size(theta));
 %
 
 h = sigmoid(X * theta);
-J = sum( -y .* log(h) - (1-y) .* log(1-h));
-
-
+J = sum( -y .* log(h) - (1-y) .* log(1-h)) * (1/m);
+delta_J = (1/m) * X' * (h - y);   % partial derivatives of J
 
 % =============================================================
 
-grad = grad(:);
+grad = grad(:) + delta_J;
 
 end
